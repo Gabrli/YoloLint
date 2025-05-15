@@ -1,5 +1,5 @@
 from yololint.structure_validator import StructureValidator
-from yololint.yolo_annotation_checker import YoloAnnotationChecker
+from yololint.annotation_checker import AnnotationChecker
 import os 
 dataset_path = os.path.join(os.path.dirname(__file__), 'dataset')
 
@@ -7,6 +7,6 @@ dataset_path = os.path.join(os.path.dirname(__file__), 'dataset')
 # res = checker.dataset_validation()
 # print(res)
 labels_path = os.path.join(dataset_path, 'labels')
-checker = YoloAnnotationChecker(labels_path, 3)
+checker = AnnotationChecker(labels_path, 3)
 print(checker.annotation_checker())
 

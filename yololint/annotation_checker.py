@@ -1,6 +1,6 @@
 import os
 from glob import glob
-class YoloAnnotationChecker:
+class AnnotationChecker:
     def __init__(self, labels_path, classes_count):
         self.labels_path = labels_path
         self.classes_count = classes_count
