@@ -1,4 +1,5 @@
 import os
+import yaml
 from yololint.utils.compare_validate import compare_validate
 from yololint.utils.add_file_to_list import add_file_to_list
 from yololint.constants.folders import BASIC_FOLDERS, CHILD_FOLDERS
@@ -6,24 +7,34 @@ from yololint.constants.folders import BASIC_FOLDERS, CHILD_FOLDERS
 class StructureValidator:
     def __init__(self, dataset_path):
         self.dataset_path = dataset_path
+        self.__errors = []
 
     def dataset_validation(self):
         full_dataset_path = os.path.join(os.path.dirname(__file__), self.dataset_path)
         if not os.path.exists(full_dataset_path):
-            return "dataset path dosen't exists or is not correct !"
+            self.__errors.append("dataset path dosen't exists or is not correct !")
         basic_subfolders = []
-        is_data_yaml = False
+        data_yaml = ''
         for basic_subfolder in os.listdir(full_dataset_path):
-            is_data_yaml = basic_subfolder == "data.yaml"
-            basic_subfolders.append(basic_subfolder) if not is_data_yaml else is_data_yaml
+            if basic_subfolder.endswith('.yaml'):
+                data_yaml = basic_subfolder
+            else: basic_subfolders.append(basic_subfolder)
          
-   
+         
         basic_compare_valid = compare_validate(basic_subfolders, BASIC_FOLDERS)
         if basic_compare_valid:
-            return f"You don't have every need basic folders: {basic_compare_valid}"
+            self.__errors.append(f"You don't have every need basic folders: {basic_compare_valid}")
   
-        if not is_data_yaml:
-            return f"You don't have data.yaml file !"
+        if data_yaml == '':
+            self.__errors.append(f"You don't have data.yaml file !")
+        
+        with open(os.path.join(full_dataset_path, data_yaml), 'r') as f:
+            data_config = yaml.safe_load(f)
+
+            class_names = data_config.get('names')
+            num_classes = data_config.get('nc')
+            if not len(class_names) == num_classes:
+                self.__errors.append("You don't have the same number of class_names and defined enum classes.")
         
         child_subfolders = []
  
@@ -37,7 +48,7 @@ class StructureValidator:
        
             child_compare_valid = compare_validate(child_subfolders, CHILD_FOLDERS)
             if  child_compare_valid:
-                return f"you don't every need child folders: {child_compare_valid} in {folder}"
+                self.__errors.append(f"you don't every need child folders: {child_compare_valid} in {folder}")
             child_subfolders = []
   
       
@@ -48,13 +59,9 @@ class StructureValidator:
 
 
         if (len_train_images != len_train_txt or len_train_images < 0 or len_train_txt < 0) or (len_test_images != len_test_txt or len_test_images < 0 or len_test_txt < 0):
-            return (f"You don't have the same number of images and txt files in. "
+            self.__errors.append(f"You don't have the same number of images and txt files in. "
                     f"Train Images: {len_train_images}, Test images: {len_test_images}, "
                     f"Train Txt: {len_train_txt}, Test Txt: {len_test_txt}")
 
-        return "Structure check complete !"
+        return f"Your Errors: {self.__errors}"
         
-
-    def has_errors(self):
-        pass
-    def print_summary(self):pass
