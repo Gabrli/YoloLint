@@ -18,16 +18,11 @@
 ## 📦 Structure of directories
 
 ```
-yolodatasetdebugger/
-├── dataset/
-│   ├── images/
-│   │   ├── train/
-│   │   └── val/
-│   ├── labels/
-│   │   ├── train/
-│   │   └── val/
-│   └── data.yaml
+.
 ├── yololint/
+│   ├── clis/
+│   │   ├── structure_validator_cli.py
+│   │   └── annotation_checker.py
 │   ├── structure_validator.py
 │   ├── annotation_checker.py
 │   ├── utils/
@@ -35,15 +30,21 @@ yolodatasetdebugger/
 │   │   └── add_file_to_list.py
 │   └── constants/
 │       └── folders.py
-└── test.py
+├── tests/
+│   ├── test_structure_validator.py
+│   ├── test_annotation_checker.py
+│   └── utils/
+│       └── prepare_lib_proccess.py
+├── requirements.txt
+├── setup.py
+├── README.md
 ```
-
 ---
 
 ## 🛠️ Installation
 
 ```bash
-pip install pyyaml
+pip install yololint
 ```
 
 ---
