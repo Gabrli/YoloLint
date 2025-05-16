@@ -15,6 +15,9 @@ yololint.egg-info/dependency_links.txt
 yololint.egg-info/entry_points.txt
 yololint.egg-info/requires.txt
 yololint.egg-info/top_level.txt
+yololint/clis/__init__.py
+yololint/clis/annotation_checker_cli.py
+yololint/clis/structure_validator_cli.py
 yololint/constants/__init__.py
 yololint/constants/folders.py
 yololint/utils/__init__.py

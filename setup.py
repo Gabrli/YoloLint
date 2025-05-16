@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="yololint",
-    version="1.0.1",
+    version="1.0.2",
     description="YOLO Dataset Debugger (yololint) is a tool for automatic validation and diagnostics of YOLO-format datasets. It helps you quickly detect common errors, inconsistencies, and missing files in your dataset structure and annotations before you start model training. With clear reports and easy usage, you save time and ensure your dataset is ready for deep learning projects.",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -33,7 +33,7 @@ setup(
     entry_points={
         "console_scripts":[
             "yololint-structure-v = yololint.clis.structure_validator_cli:main",
-            "yololint-annotation-v = yololint.clis.annotation_checker:main",     
+            "yololint-annotation-v = yololint.clis.annotation_checker_cli:main",     
         ]
     },
 )
