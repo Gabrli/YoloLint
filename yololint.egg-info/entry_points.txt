@@ -1,0 +1,3 @@
+[console_scripts]
+yololint-annotation-v = yololint.clis.annotation_checker:main
+yololint-structure-v = yololint.clis.structure_validator_cli:main

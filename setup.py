@@ -24,7 +24,7 @@ setup(
     "Topic :: Software Development :: Libraries",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: Apache License Version 2.0",
+    "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
     ],
     install_requires=[
