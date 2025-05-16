@@ -1,7 +1,7 @@
-# 🦾 YOLO Dataset Debugger - ( YoloLint )
+# YOLO Dataset Debugger - ( YoloLint )
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)
-![License](https://img.shields.io/badge/License-MIT-green)
+![License](https://img.shields.io/badge/Apache-License-green)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 ![YOLO](https://img.shields.io/badge/YOLO-Dataset-yellow)
 ![Linting](https://img.shields.io/badge/Linting-PEP8-blue)
@@ -101,4 +101,4 @@ nc: 3
 
 ## 📄 License
 
-Project on MIT license.
+Project on Apache License Version 2.0.
