@@ -85,6 +85,33 @@ nc: 3
 
 ---
 
+## 🖥️ Available Terminal Scripts
+
+After the installation package you can use this commends:
+### Dataset Structure Validation
+
+```sh
+yololint-structure-v <path_to_folder_with_data>
+```
+**Example**
+```sh
+yololint-structure-v ./my_yolo_dataset
+```
+
+---
+
+### File Annotation validation
+
+```sh
+yololint-annotation-v <path_to_folder_with_labels> <num_of_classes>
+```
+**Example:**
+```sh
+yololint-annotation-v ./my_yolo_dataset/labels 3
+```
+
+---
+
 ## 🏷️ The most important functions
 
 - ![check](https://img.shields.io/badge/-Automatic%20structure%20validation-4caf50?style=flat-square&logo=checkmarx&logoColor=white)
