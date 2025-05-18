@@ -70,7 +70,7 @@ from yololint.annotation_checker import AnnotationChecker
 import os
 
 labels_path = os.path.join(os.path.dirname(__file__), 'dataset', 'labels')
-checker = AnnotationChecker(labels_path, liczba_klas)
+checker = AnnotationChecker(labels_path, number_of_classes)
 print(checker.annotation_checker())
 ```
 
