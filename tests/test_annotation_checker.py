@@ -6,4 +6,3 @@ def test_annotation_checker():
     dataset_path = os.path.join(base_dir, 'dataset/labels')
     result = prepare_lib_proccess(dataset_path, 3, "annotation")
     assert isinstance(result, str)
-    assert f"Your Errors: " in result

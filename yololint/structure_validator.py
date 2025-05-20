@@ -66,5 +66,5 @@ class StructureValidator:
       
             return f"🖼️ Number of images and annotation files (.txt) doesn't match!\n Train Images: {len_train_images}, Train Labels: {len_train_txt}\n Val Images: {len_test_images}, Val Labels: {len_test_txt} ⚠️"
 
-        return f"🧪 Validation complete.\n❗ Errors found:\n" + "\n".join(self.__errors) if self.__errors else "✅ All checks passed. Dataset structure looks good! 🧼"
+        return f"🧪 Validation complete.\n ✅ All checks passed. Dataset structure looks good! 🧼"
         

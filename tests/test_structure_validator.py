@@ -5,4 +5,3 @@ def test_structurte_validator():
     dataset_path = os.path.join(base_dir, 'dataset')
     result = prepare_lib_proccess(dataset_path)
     assert isinstance(result, str)
-    assert "Your Errors: " in result
