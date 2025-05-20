@@ -49,30 +49,60 @@ pip install yololint
 
 ---
 
-## ⚡ Quick Start
+## 📚 Documentation – How to Use
 
-### ✅ Structure Validation
+### Validate Dataset Structure
+
+To check the correctness of your YOLO dataset folder structure and `data.yaml` file:
 
 ```python
 from yololint.structure_validator import StructureValidator
-import os
 
-dataset_path = os.path.join(os.path.dirname(__file__), 'dataset')
+dataset_path = "/path/to/your/dataset"
 checker = StructureValidator(dataset_path)
 result = checker.dataset_validation()
 print(result)
 ```
+- **Function:** `StructureValidator.dataset_validation()`
+- **Description:** Checks if the folder structure and `data.yaml` are correct, and if the number of classes and class names match.
 
-### ✅ Annotation validation
+---
+
+### Validate YOLO Annotation Files
+
+To check the correctness of YOLO `.txt` annotation files:
 
 ```python
 from yololint.annotation_checker import AnnotationChecker
-import os
 
-labels_path = os.path.join(os.path.dirname(__file__), 'dataset', 'labels')
-checker = AnnotationChecker(labels_path, liczba_klas)
-print(checker.annotation_checker())
+labels_path = "/path/to/your/dataset/labels"
+classes_count = 3  # number of classes in your dataset
+checker = AnnotationChecker(labels_path, classes_count)
+result = checker.annotation_checker()
+print(result)
 ```
+- **Function:** `AnnotationChecker.annotation_checker()`
+- **Description:** Checks if all `.txt` files have the correct format (5 values per line, valid class_id) and are not empty.
+
+---
+
+### Command Line Interface (CLI)
+
+You can also use the CLI tools after installing the package:
+
+- **Structure validation:**
+  ```sh
+  yololint-structure-v <path_to_your_dataset>
+  ```
+
+- **Annotation validation:**
+  ```sh
+  yololint-annotation-v <path_to_labels_folder> <number_of_classes>
+  ```
+
+---
+
+**Each function returns a clear text report indicating any errors or confirming that your data is correct.**
 
 ---
 
@@ -81,33 +111,6 @@ print(checker.annotation_checker())
 ```yaml
 names: ['class1', 'class2', 'class3']
 nc: 3
-```
-
----
-
-## 🖥️ Available Terminal Scripts
-
-After the installation package you can use this commends:
-### Dataset Structure Validation
-
-```sh
-yololint-structure-v <path_to_folder_with_data>
-```
-**Example**
-```sh
-yololint-structure-v ./my_yolo_dataset
-```
-
----
-
-### File Annotation validation
-
-```sh
-yololint-annotation-v <path_to_folder_with_labels> <num_of_classes>
-```
-**Example:**
-```sh
-yololint-annotation-v ./my_yolo_dataset/labels 3
 ```
 
 ---
