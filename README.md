@@ -86,6 +86,27 @@ print(result)
 
 ---
 
+
+### Validate and Rescale Image Sizes
+
+To check if all images in your dataset have the expected size, and optionally rescale them:
+
+```python
+from yololint.sizes_checker import SizesChecker
+
+sizeX = 640  # expected width
+sizeY = 480  # expected height
+dataset_path = "/path/to/your/dataset"
+
+checker = SizesChecker(sizeX, sizeY)
+checker.check_sizes(dataset_path)
+```
+
+- **Function:** `SizesChecker.check_sizes(path_to_dataset)`
+- **Description:** Checks if all images in the dataset have the specified size. If an image has a different size, you will be prompted in the terminal to rescale it automatically.
+
+---
+
 ### Command Line Interface (CLI)
 
 You can also use the CLI tools after installing the package:
@@ -98,6 +119,10 @@ You can also use the CLI tools after installing the package:
 - **Annotation validation:**
   ```sh
   yololint-annotation-v <path_to_labels_folder> <number_of_classes>
+  ```
+- **Validate and Rescale Image Sizes:**
+  ```sh
+  yololint-sizes-v <width> <height> <path_to_dataset>
   ```
 
 ---
